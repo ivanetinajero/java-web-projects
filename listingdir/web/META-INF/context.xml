@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/listingdir">
+
+<Realm className="org.apache.catalina.realm.JDBCRealm" 
+       connectionName="root" connectionPassword="admin" 
+       connectionURL="jdbc:mysql://localhost:3306/securitydb"      
+       driverName="com.mysql.jdbc.Driver"     
+       digest="MD5" 
+       roleNameCol="perfil" userCredCol="password" userNameCol="username" 
+       userRoleTable="UsuarioPerfil" userTable="Usuario"/>
+
+</Context>
+<!--
+   digest="MD5" 
+   digest="SHA-256" 
+   digest="SHA-512" 
+-->
+
+<!-- 
+      If you don't want to use JDBCRealm authentication set up the users this other way: 
+       
+      1. Edit the file "apache-tomcat-8.0.33/conf/tomcat-users.xml"
+      2. Add the users and passwords
+      
+         <role rolename="tomcat"/>
+         <role rolename="role1"/>
+         <user username="tomcat" password="admin" roles="tomcat"/>
+         <user username="both" password="admin" roles="tomcat,role1"/>
+         <user username="role1" password="admin" roles="role1"/>
+         
+      3. Restart Apache Tomcat.
+      
+   -->
