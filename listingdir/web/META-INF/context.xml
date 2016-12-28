@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/listingdir">
-<!--
+
 <Realm className="org.apache.catalina.realm.JDBCRealm" 
        connectionName="root" connectionPassword="admin" 
        connectionURL="jdbc:mysql://localhost:3306/descargasdb"      
@@ -8,7 +8,7 @@
        digest="MD5" 
        roleNameCol="perfil" userCredCol="password" userNameCol="username" 
        userRoleTable="UsuarioPerfil" userTable="Usuario"/>
--->
+       
 </Context>
 <!--
    digest="MD5" 
