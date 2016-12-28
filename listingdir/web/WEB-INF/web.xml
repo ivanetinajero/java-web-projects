@@ -19,16 +19,28 @@
    </servlet-mapping>
    
    <security-constraint>
-      <display-name>Example Security Constraint - part 1</display-name>
+      <display-name>Archivos protegidos para estudiantes de Udemy</display-name>
       <web-resource-collection>
-         <web-resource-name>Protected Area - Allow methods</web-resource-name>
+         <web-resource-name>Recursos de lecciones</web-resource-name>
+         <!-- Define the context-relative URL(s) to be protected -->
+         <url-pattern>/udemy/*</url-pattern>         
+      </web-resource-collection>
+      <auth-constraint>
+         <!-- Anyone with this role may access this area -->
+         <role-name>udemy</role-name>         
+      </auth-constraint>
+   </security-constraint>
+   
+   <security-constraint>
+      <display-name>Archivos protegidos - Usuarios de Internet</display-name>
+      <web-resource-collection>
+         <web-resource-name>Area protegida</web-resource-name>
          <!-- Define the context-relative URL(s) to be protected -->
          <url-pattern>/protected/*</url-pattern>         
       </web-resource-collection>
       <auth-constraint>
-         <!-- Anyone with one of the listed roles may access this area -->
-         <role-name>tomcat</role-name>
-         <role-name>role1</role-name>
+         <!-- Anyone with this role may access this area -->        
+         <role-name>internet</role-name>
       </auth-constraint>
    </security-constraint>
 

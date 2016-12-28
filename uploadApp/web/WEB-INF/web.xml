@@ -5,6 +5,9 @@
     <servlet-class>net.itinajero.UploadServlet</servlet-class>
     <!-- https://docs.oracle.com/javaee/6/tutorial/doc/gmhal.html -->
     <multipart-config>
+      <!--
+      <location>c:\tmp</location>
+      -->
       <location>/tmp</location>
       <!-- Tamanio maximo del archivo a subir-->
       <max-file-size>1048576</max-file-size>
