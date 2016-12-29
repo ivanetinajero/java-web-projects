@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>    
+  </head>
+  <body>
+    <form action="registration" method="post">     
+      NOMBRE:<br>
+      <input type="text" id="name" name="name" required="" placeholder="Escriba su nombre."><br>
+      EMAIL:<br>
+      <input type="email" id="email" name="email" 
+             required=""  placeholder="Escriba su email." >
+      <input type="hidden" id="source" name="source" value="cursoUdemy"><br>
+      <br><br>     
+      <input type="submit" id="submit" value="Enviar" >
+    </form> 
+  </body>
+</html>
