@@ -1,0 +1,25 @@
+.ui-selectonemenu {   
+   min-width: 100px !important;   
+}
+
+input.filterTxt{
+    width:120px;
+}
+
+.dateTimeField input {
+   width:120px ;
+}
+/*Tamanio of the growl dialog*/
+.ui-growl-item {
+    display: block;
+    padding: 5px 5px;
+    font-size: 16px;
+}
+/* Estilo para marcar los registros sin stock 
+   Uso en ROW <p:dataTable #{registro.existencia == 0 ? 'noStock' : null} ....>
+   Uso en COL <p:column styleClass="#{registro.existencia == 0 ? 'noStock' : null}" ..>
+*/
+.noStock {
+   background-color: #FF0000;
+   color: #FFFFFF;
+}

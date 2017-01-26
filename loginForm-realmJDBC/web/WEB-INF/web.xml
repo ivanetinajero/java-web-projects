@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+   
+   <welcome-file-list>
+      <welcome-file>index.jsp</welcome-file>
+   </welcome-file-list> 
+   
+   <servlet-mapping>
+      <servlet-name>AdminServlet</servlet-name>
+      <url-pattern>/protected/admin</url-pattern>
+   </servlet-mapping>
+   
+   <servlet>
+      <servlet-name>LogoutServlet</servlet-name>
+      <servlet-class>net.itinajero.LogoutServlet</servlet-class>
+   </servlet>
+   <servlet>
+      <servlet-name>AdminServlet</servlet-name>
+      <servlet-class>net.itinajero.AdminServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>LogoutServlet</servlet-name>
+      <url-pattern>/logout</url-pattern>
+   </servlet-mapping>
+   <security-constraint>
+      <display-name>Recursos protegidos solo para administradores</display-name>
+      <web-resource-collection>
+         <web-resource-name>Area protegida</web-resource-name>
+         <!-- Todos los archivos y URLs relativas al directorio protected 
+              estaran protegidas.
+         -->
+         <url-pattern>/protected/*</url-pattern>
+      </web-resource-collection>
+      <auth-constraint>
+         <!-- Solo usuarios con el rol "editor" tendran acceso a los recursos -->
+         <role-name>editor</role-name>
+      </auth-constraint>
+   </security-constraint>
+   <!-- Tipo Autenticacion FORM (Fomulario HTML) -->
+   <login-config>
+      <auth-method>FORM</auth-method>
+      <form-login-config>
+         <form-login-page>/login.jsp</form-login-page>
+         <form-error-page>/error.jsp</form-error-page>
+      </form-login-config>
+   </login-config>
+</web-app>
