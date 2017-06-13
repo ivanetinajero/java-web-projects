@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    
+   <display-name>Mobile Web App</display-name>
+    
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>default.html</welcome-file>
+    </welcome-file-list>
+    
+    <context-param>
+        <param-name>siteName</param-name>
+        <param-value>Cinema Plus</param-value>
+    </context-param>
+    
+    <servlet>
+        <servlet-name>ScheduleController</servlet-name>
+        <servlet-class>net.mycompany.mobile.controller.ScheduleController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ScheduleController</servlet-name>
+        <url-pattern>/schedule</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>MovieAdminController</servlet-name>
+        <servlet-class>net.mycompany.mobile.controller.MovieAdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MovieAdminController</servlet-name>
+        <url-pattern>/view/admin/movie</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ScheduleAdminController</servlet-name>
+        <servlet-class>net.mycompany.mobile.controller.ScheduleAdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ScheduleAdminController</servlet-name>
+        <url-pattern>/view/admin/schedule</url-pattern>
+    </servlet-mapping>    
+    
+    <servlet>
+        <servlet-name>UserAdminController</servlet-name>
+        <servlet-class>net.mycompany.mobile.controller.UserAdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserAdminController</servlet-name>
+        <url-pattern>/view/admin/user</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>net.mycompany.mobile.controller.Logout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>        
+    
+    <servlet>
+        <servlet-name>ContactController</servlet-name>
+        <servlet-class>net.mycompany.mobile.controller.ContactController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ContactController</servlet-name>
+        <url-pattern>/contact</url-pattern>
+    </servlet-mapping>
+ 
+ 
+    <security-role>
+        <description>Administrador</description>
+        <role-name>administrator</role-name>
+    </security-role>
+    
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Protected Area</web-resource-name>
+			<url-pattern>/view/admin/*</url-pattern>
+		</web-resource-collection>
+
+		<auth-constraint>
+			<role-name>administrator</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+   <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>             
+            <form-error-page>/error.jsp</form-error-page>
+        </form-login-config>
+   </login-config>
+   
+</web-app>
