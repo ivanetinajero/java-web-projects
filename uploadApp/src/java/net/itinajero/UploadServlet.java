@@ -20,9 +20,14 @@ public class UploadServlet extends HttpServlet {
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
       // gets absolute path of the web application
-      String applicationPath = request.getServletContext().getRealPath("");
+      //String applicationPath = request.getServletContext().getRealPath("");
+      
+      // gets absolute path of the external directory to webapps (web.xml)
+      String applicationPath = getServletContext().getInitParameter("file-upload");
+
       // constructs path of the directory to save uploaded file
-      String uploadFilePath = applicationPath + File.separator + UPLOAD_DIR;
+      //String uploadFilePath = applicationPath + File.separator + UPLOAD_DIR;
+      String uploadFilePath = applicationPath + File.separator;
 
       String name = request.getParameter("name");
       System.out.println("Name: " + name);
@@ -52,6 +57,8 @@ public class UploadServlet extends HttpServlet {
       // Escribimos el archivo al disco duro del servidor
       archivo.write(uploadFilePath + File.separator + nombre);
       request.setAttribute("message", "File uploaded successfully!");
+      request.setAttribute("archivo", nombre);
+      
       getServletContext().getRequestDispatcher("/response.jsp").forward(request, response);
    }
    /**

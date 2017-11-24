@@ -4,6 +4,8 @@
 <title>Upload File Response</title>
 </head>
 <body>	
-    <h2>${message}</h2>
+    <h3>${message}</h3>
+    <h2>Uploaded Image</h2>
+    <img src="/static/${archivo}" />
 </body>
 </html>
